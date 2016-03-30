@@ -6,12 +6,26 @@ using System.IO;
 
 namespace GZipHelperLib.Tools
 {
-    class FileTools
+    public class FileTools
     {
-        public static FileInfo[] GetDirAllFiles(string dirPath)
+        public static List<FileInfo> GetDirAllFiles(string dirPath)
         {
+            List<FileInfo> rtnlfi = new List<FileInfo>();
             DirectoryInfo Folder = new DirectoryInfo(dirPath);
-            return Folder.GetFiles();
+            foreach (var dir in Folder.GetDirectories())
+            {
+                List<FileInfo> lfi=GetDirAllFiles(dir.FullName);
+                foreach(var fi in lfi)
+                {
+                    rtnlfi.Add(fi);
+                }
+            }
+            FileInfo[] ffi=Folder.GetFiles();
+            for(int i = 0; i < ffi.Length; i++)
+            {
+                rtnlfi.Add(ffi[i]);
+            }
+            return rtnlfi;
             
         }
 
@@ -37,11 +51,10 @@ namespace GZipHelperLib.Tools
         public static List<PacketFile> Combine(List<PacketFile> lpf,string destfile)
         {
             List<PacketFile> rtnlpf = new List<PacketFile>();
-            FileStream fs = new FileStream(destfile, FileMode.CreateNew);
+            FileStream fs = new FileStream(destfile, FileMode.Create);
             ByteArray ba = new ByteArray(StreamTools.StreamToBytes(fs));
             fs.Close();
-            StreamWriter sw = new StreamWriter(destfile);
-            sw.Write(PacketFileSerializer(lpf));
+
 
             for(int i = 0; i < lpf.Count; i++)
             {

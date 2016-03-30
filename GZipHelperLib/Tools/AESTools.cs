@@ -6,7 +6,7 @@ using System.Text;
 
 namespace GZipHelperLib.Tools
 {
-    class AESTools
+    public class AESTools
     {
         public static bool encryption(string strkey, string readfile, string writefile)
         {

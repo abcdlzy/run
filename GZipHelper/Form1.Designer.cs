@@ -1,6 +1,6 @@
 ﻿namespace GZipHelper
 {
-    partial class tbPassword
+    partial class Form1
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -43,7 +43,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBuild = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbPassword = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // progressBar1
@@ -68,6 +68,7 @@
             this.tbPacketDir.Name = "tbPacketDir";
             this.tbPacketDir.Size = new System.Drawing.Size(577, 21);
             this.tbPacketDir.TabIndex = 2;
+            this.tbPacketDir.Text = "C:\\Users\\123\\Desktop\\Mozilla Firefox\\";
             // 
             // openFileDialog1
             // 
@@ -89,6 +90,7 @@
             this.tbChooseRunExe.Name = "tbChooseRunExe";
             this.tbChooseRunExe.Size = new System.Drawing.Size(577, 21);
             this.tbChooseRunExe.TabIndex = 4;
+            this.tbChooseRunExe.Text = "C:\\Users\\123\\Desktop\\Mozilla Firefox\\firefox.exe";
             // 
             // label2
             // 
@@ -124,6 +126,7 @@
             this.tbSaveLoc.Name = "tbSaveLoc";
             this.tbSaveLoc.Size = new System.Drawing.Size(577, 21);
             this.tbSaveLoc.TabIndex = 8;
+            this.tbSaveLoc.Text = "C:\\Users\\123\\Desktop\\1";
             // 
             // btnSave
             // 
@@ -154,19 +157,20 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "密码";
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(25, 233);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(577, 21);
-            this.textBox4.TabIndex = 12;
-            // 
             // tbPassword
+            // 
+            this.tbPassword.Location = new System.Drawing.Point(25, 233);
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(577, 21);
+            this.tbPassword.TabIndex = 12;
+            this.tbPassword.Text = "123456";
+            // 
+            // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(721, 386);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnBuild);
             this.Controls.Add(this.btnSave);
@@ -179,7 +183,7 @@
             this.Controls.Add(this.tbPacketDir);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
-            this.Name = "tbPassword";
+            this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -203,7 +207,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnBuild;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbPassword;
     }
 }
 

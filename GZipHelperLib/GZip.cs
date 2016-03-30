@@ -8,12 +8,13 @@ using System.Text;
 
 namespace GZipHelperLib
 {
-    class GZipHelper
+    public class GZip
     {
         public static void Compress(string path,string password,string destFile)
         {
+            PacketFile newpf=new PacketFile("YnJvd3Nlclxjb21wb25lbnRzXGJyb3dzZXJjb21wcy5kbGw/MD8tMT8tMT9DOlxVc2Vyc1wxMjNcQXBwRGF0YVxMb2NhbFxUZW1wXGd6aXBjb21wcmVzc1wwLmd6aXA=");
 
-            FileInfo[] fi = Tools.FileTools.GetDirAllFiles(path);
+            List<FileInfo> lfi = Tools.FileTools.GetDirAllFiles(path);
             string temp = System.Environment.GetEnvironmentVariable("TEMP");
             DirectoryInfo info = new DirectoryInfo(temp);
             if (Directory.Exists(temp + "/gzipcompress/"))
@@ -22,8 +23,11 @@ namespace GZipHelperLib
             }
             Directory.CreateDirectory(temp + "/gzipcompress/");
             List<PacketFile> lpf = new List<PacketFile>();
-            if (fi.Length > 0)
+            if (lfi.Count > 0)
             {
+                
+                FileInfo[] fi = lfi.ToArray();
+                /*
                 for(int i = 0; i < fi.Length; i++)
                 {
                     //encrypt files
@@ -31,21 +35,24 @@ namespace GZipHelperLib
                     lpf.Add(new PacketFile(fi[i], i, temp + "/gzipcompress/" + fi[i].Name + ".ENC"));
 
                 }
-
+                */
                 //compress files
-                foreach(var enc in lpf)
+                for (int i = 0; i < fi.Length; i++)
                 {
-                   CompressData(StreamTools.StreamToBytes(StreamTools.FileToStream(enc.AESEncryptFile)), temp + "/gzipcompress/" + enc.SerialNumber + ".gzip");
-                    enc.GZipFile = temp + "/gzipcompress/" + enc.SerialNumber + ".gzip";
+                   CompressData(StreamTools.StreamToBytes(StreamTools.FileToStream(fi[i].FullName)), temp + "\\gzipcompress\\" + i + ".gzip");
+                    lpf.Add(new PacketFile(fi[i], i, temp + "\\gzipcompress\\" + i + ".gzip", path));
                 }
 
 
                 //packet files to file
                 
-                lpf = FileTools.Combine(lpf, destFile);
+                lpf = FileTools.Combine(lpf, destFile+".bin");
                 //touch struct file
-
-
+                StreamWriter sw = new StreamWriter(temp + "\\gzipcompress\\struct.s");
+                string a=FileTools.PacketFileSerializer(lpf);
+                sw.Write(a);
+                sw.Close();
+                AESTools.encryption(MD5Tools.MD5Encrypt( password), temp + "\\gzipcompress\\struct.s", destFile + ".s");
             }
         }
 

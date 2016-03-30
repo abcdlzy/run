@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GZipHelperLib.Tools
 {
-    class ByteArray
+    public class ByteArray
     {
         private byte[] m_data = null;
         public ByteArray(byte[] data)

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GZipHelperLib.Tools
 {
-    class StreamTools
+    public class StreamTools
     {
         public static byte[] StreamToBytes(Stream stream)
         {

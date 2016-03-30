@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-
+using GZipHelperLib;
 using System.Windows.Forms;
 
 namespace GZipHelper
 {
-    public partial class tbPassword : Form
+    public partial class Form1 : Form
     {
-        public tbPassword()
+        public Form1()
         {
             InitializeComponent();
         }
 
         private void btnBuild_Click(object sender, EventArgs e)
         {
-            GZipHelperLib
+            GZip.Compress(tbPacketDir.Text, tbPassword.Text, tbSaveLoc.Text);
         }
 
         private void btnChooseDir_Click(object sender, EventArgs e)

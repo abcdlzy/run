@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GZipHelperLib.Tools
 {
-    class MD5Tools
+    public class MD5Tools
     {
         public static string MD5Encrypt(string strText)
         {
