@@ -30,7 +30,7 @@
         {
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbPackDir = new System.Windows.Forms.TextBox();
+            this.tbPacketDir = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnChooseDir = new System.Windows.Forms.Button();
@@ -62,12 +62,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "需要打包的文件夹";
             // 
-            // tbPackDir
+            // tbPacketDir
             // 
-            this.tbPackDir.Location = new System.Drawing.Point(25, 47);
-            this.tbPackDir.Name = "tbPackDir";
-            this.tbPackDir.Size = new System.Drawing.Size(577, 21);
-            this.tbPackDir.TabIndex = 2;
+            this.tbPacketDir.Location = new System.Drawing.Point(25, 47);
+            this.tbPacketDir.Name = "tbPacketDir";
+            this.tbPacketDir.Size = new System.Drawing.Size(577, 21);
+            this.tbPacketDir.TabIndex = 2;
             // 
             // openFileDialog1
             // 
@@ -81,6 +81,7 @@
             this.btnChooseDir.TabIndex = 3;
             this.btnChooseDir.Text = "选择文件夹";
             this.btnChooseDir.UseVisualStyleBackColor = true;
+            this.btnChooseDir.Click += new System.EventHandler(this.btnChooseDir_Click);
             // 
             // tbChooseRunExe
             // 
@@ -106,6 +107,7 @@
             this.btnRunExe.TabIndex = 6;
             this.btnRunExe.Text = "选择应用程序";
             this.btnRunExe.UseVisualStyleBackColor = true;
+            this.btnRunExe.Click += new System.EventHandler(this.btnRunExe_Click);
             // 
             // label3
             // 
@@ -131,6 +133,7 @@
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "选择位置";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnBuild
             // 
@@ -173,7 +176,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbChooseRunExe);
             this.Controls.Add(this.btnChooseDir);
-            this.Controls.Add(this.tbPackDir);
+            this.Controls.Add(this.tbPacketDir);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.progressBar1);
             this.Name = "tbPassword";
@@ -187,7 +190,7 @@
 
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbPackDir;
+        private System.Windows.Forms.TextBox tbPacketDir;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnChooseDir;
