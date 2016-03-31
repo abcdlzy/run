@@ -46,9 +46,9 @@ namespace GZipHelperLib
 
                 //packet files to file
                 
-                lpf = FileTools.Combine(lpf, destFile+"\\bin");
+                lpf = FileTools.Combine(lpf, destFile+".bin");
                 //touch struct file
-                StreamWriter sw = new StreamWriter(destFile+ "\\s");
+                StreamWriter sw = new StreamWriter(destFile+ ".s");
                 string a=AESTools.Encrypt( FileTools.PacketFileSerializer(lpf),password);
                 sw.Write(a);
                 sw.Close();

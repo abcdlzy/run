@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.tbPacketDir = new System.Windows.Forms.TextBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
@@ -36,19 +35,12 @@
             this.btnChooseDir = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.label3 = new System.Windows.Forms.Label();
-            this.tbSaveLoc = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnBuild = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
+            this.tbSaveLoc = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(25, 243);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(680, 27);
-            this.progressBar1.TabIndex = 0;
             // 
             // label1
             // 
@@ -65,7 +57,6 @@
             this.tbPacketDir.Name = "tbPacketDir";
             this.tbPacketDir.Size = new System.Drawing.Size(577, 21);
             this.tbPacketDir.TabIndex = 2;
-            this.tbPacketDir.Text = "C:\\Users\\123\\Desktop\\Mozilla Firefox\\";
             // 
             // openFileDialog1
             // 
@@ -89,14 +80,6 @@
             this.label3.Size = new System.Drawing.Size(101, 12);
             this.label3.TabIndex = 7;
             this.label3.Text = "生成后保存的位置";
-            // 
-            // tbSaveLoc
-            // 
-            this.tbSaveLoc.Location = new System.Drawing.Point(25, 98);
-            this.tbSaveLoc.Name = "tbSaveLoc";
-            this.tbSaveLoc.Size = new System.Drawing.Size(577, 21);
-            this.tbSaveLoc.TabIndex = 8;
-            this.tbSaveLoc.Text = "C:\\Users\\123\\Desktop\\1";
             // 
             // btnSave
             // 
@@ -135,6 +118,13 @@
             this.tbPassword.TabIndex = 12;
             this.tbPassword.Text = "123456";
             // 
+            // tbSaveLoc
+            // 
+            this.tbSaveLoc.Location = new System.Drawing.Point(25, 98);
+            this.tbSaveLoc.Name = "tbSaveLoc";
+            this.tbSaveLoc.Size = new System.Drawing.Size(577, 21);
+            this.tbSaveLoc.TabIndex = 8;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -149,7 +139,6 @@
             this.Controls.Add(this.btnChooseDir);
             this.Controls.Add(this.tbPacketDir);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.progressBar1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -158,8 +147,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbPacketDir;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
@@ -167,11 +154,11 @@
         private System.Windows.Forms.Button btnChooseDir;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbSaveLoc;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnBuild;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.TextBox tbSaveLoc;
     }
 }
 

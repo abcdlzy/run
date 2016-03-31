@@ -13,7 +13,7 @@ namespace run
         public static DateTime GetNetworkTime()
         {
             //default Windows time server
-            const string ntpServer = "time.windows.com";
+            const string ntpServer = "time.nist.gov";
 
             // NTP message size - 16 bytes of the digest (RFC 2030)
             var ntpData = new byte[48];

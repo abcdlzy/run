@@ -39,7 +39,9 @@ namespace run
             string readRegCode = FileTools.ReadFiletoString(System.IO.Directory.GetCurrentDirectory() +"\\reg");
             if (readRegCode == null || readRegCode == "")
             {
-                
+                this.Hide();
+                Form2 f2 = new Form2();
+                f2.Show();
             }
             else
             {

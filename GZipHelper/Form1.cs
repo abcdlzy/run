@@ -18,6 +18,7 @@ namespace GZipHelper
         private void btnBuild_Click(object sender, EventArgs e)
         {
             GZip.Compress(tbPacketDir.Text, tbPassword.Text, tbSaveLoc.Text);
+            MessageBox.Show("完成");
         }
 
         private void btnChooseDir_Click(object sender, EventArgs e)
@@ -31,9 +32,9 @@ namespace GZipHelper
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
-                tbSaveLoc.Text = saveFileDialog1.FileName;
+                tbSaveLoc.Text = folderBrowserDialog1.SelectedPath;
             }
         }
     }
