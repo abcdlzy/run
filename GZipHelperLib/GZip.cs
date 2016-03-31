@@ -12,7 +12,7 @@ namespace GZipHelperLib
     {
         public static void Compress(string path,string password,string destFile)
         {
-            PacketFile newpf=new PacketFile("YnJvd3Nlclxjb21wb25lbnRzXGJyb3dzZXJjb21wcy5kbGw/MD8tMT8tMT9DOlxVc2Vyc1wxMjNcQXBwRGF0YVxMb2NhbFxUZW1wXGd6aXBjb21wcmVzc1wwLmd6aXA=");
+            //PacketFile newpf=new PacketFile("YnJvd3Nlclxjb21wb25lbnRzXGJyb3dzZXJjb21wcy5kbGw/MD8tMT8tMT9DOlxVc2Vyc1wxMjNcQXBwRGF0YVxMb2NhbFxUZW1wXGd6aXBjb21wcmVzc1wwLmd6aXA=");
 
             List<FileInfo> lfi = Tools.FileTools.GetDirAllFiles(path);
             string temp = System.Environment.GetEnvironmentVariable("TEMP");
@@ -48,17 +48,71 @@ namespace GZipHelperLib
                 
                 lpf = FileTools.Combine(lpf, destFile+".bin");
                 //touch struct file
-                StreamWriter sw = new StreamWriter(temp + "\\gzipcompress\\struct.s");
-                string a=FileTools.PacketFileSerializer(lpf);
+                StreamWriter sw = new StreamWriter(destFile+ ".s");
+                string a=AESTools.Encrypt( FileTools.PacketFileSerializer(lpf),password);
                 sw.Write(a);
                 sw.Close();
-                AESTools.encryption(MD5Tools.MD5Encrypt( password), temp + "\\gzipcompress\\struct.s", destFile + ".s");
+                
             }
         }
 
-        public static void Decompress()
+        public static void Decompress(string compressFile,string structFile,string password,string decompressPath)
         {
+            string structstr =AESTools.Decrypt( StreamTools.StreamToString(StreamTools.FileToStream(structFile)),password);
+            try
+            {
+                List<PacketFile> lpf = new List<PacketFile>();
+                string[] structarray = structstr.Split('#');
+                for(int i = 0; i < structarray.Length - 1; i++)
+                {
+                    lpf.Add(new PacketFile(structarray[i]));
+                }
+                Stream stream = StreamTools.FileToStream(compressFile);
+                for(int i = 0; i < lpf.Count; i++)
+                {
+                    PacketFile spf = lpf.Find(s => s.SerialNumber == i);
+                    byte[] readbyte = new byte[spf.length];
+                    stream.Read(readbyte, 0, spf.length);
+                    readbyte = DecompressData(readbyte);
+                    FileTools.writeFile(readbyte, decompressPath + spf.GZipFile);
+                }
+                ;
+            }
+            catch
+            {
+                return;
+            }
+            ;
+        }
 
+        public static void cleanDecompressFiles(string structFile, string password, string decompressPath)
+        {
+            string structstr = AESTools.Decrypt(StreamTools.StreamToString(StreamTools.FileToStream(structFile)), password);
+            try
+            {
+                List<PacketFile> lpf = new List<PacketFile>();
+                string[] structarray = structstr.Split('#');
+                for (int i = 0; i < structarray.Length - 1; i++)
+                {
+                    lpf.Add(new PacketFile(structarray[i]));
+                }
+                foreach(var pf in lpf)
+                {
+                    try
+                    {
+                        File.Delete(decompressPath + pf.GZipFile);
+                    }
+                    catch
+                    {
+                        ;
+                    }
+                }
+                ;
+            }
+            catch
+            {
+                return;
+            }
         }
 
 
@@ -148,6 +202,52 @@ namespace GZipHelperLib
             }
         }
 
+
+
+        public static byte[] DecompressData(byte[] bytess)
+
+        {
+            using (MemoryStream source = new MemoryStream())
+            {
+                using (GZipStream gs = new GZipStream(new MemoryStream(bytess), CompressionMode.Decompress, true))
+                {
+                    //从压缩流中读出所有数据
+                    byte[] bytes = new byte[4096];
+                    int n;
+                    while ((n = gs.Read(bytes, 0, bytes.Length)) != 0)
+                    {
+                        source.Write(bytes, 0, n);
+                    }
+                }
+                
+                return StreamTools.StreamToBytes(source);
+            }
+        }
+
+        public static Stream DeCompress(Stream stream)
+
+        {
+
+            // 把 Stream 转换成 byte[]
+            byte[] bytess = new byte[stream.Length];
+            stream.Read(bytess, 0, bytess.Length);
+
+
+            using (MemoryStream source = new MemoryStream())
+            {
+                using (GZipStream gs = new GZipStream(new MemoryStream(bytess), CompressionMode.Decompress, true))
+                {
+                    //从压缩流中读出所有数据
+                    byte[] bytes = new byte[4096];
+                    int n;
+                    while ((n = gs.Read(bytes, 0, bytes.Length)) != 0)
+                    {
+                        source.Write(bytes, 0, n);
+                    }
+                }
+                return source;
+            }
+        }
 
 
         /// <summary>  

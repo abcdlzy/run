@@ -30,7 +30,7 @@ namespace GZipHelperLib.Struct
             byte[] outputb = Convert.FromBase64String(Serializer);
             string orgStr = Encoding.Default.GetString(outputb);
             string[] sps = orgStr.Split('?');
-            FileInfo fi = new FileInfo(sps[0]);
+            GZipFile = sps[0];
             SerialNumber = int.Parse(sps[1]);
             startlocation = int.Parse(sps[2]);
             length = int.Parse(sps[3]);

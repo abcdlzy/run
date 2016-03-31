@@ -28,13 +28,6 @@ namespace GZipHelper
             }
         }
 
-        private void btnRunExe_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                tbChooseRunExe.Text = openFileDialog1.FileName;
-            }
-        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {

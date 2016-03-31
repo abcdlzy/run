@@ -34,9 +34,6 @@
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.btnChooseDir = new System.Windows.Forms.Button();
-            this.tbChooseRunExe = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnRunExe = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.label3 = new System.Windows.Forms.Label();
             this.tbSaveLoc = new System.Windows.Forms.TextBox();
@@ -48,7 +45,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(25, 274);
+            this.progressBar1.Location = new System.Drawing.Point(25, 243);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(680, 27);
             this.progressBar1.TabIndex = 0;
@@ -84,37 +81,10 @@
             this.btnChooseDir.UseVisualStyleBackColor = true;
             this.btnChooseDir.Click += new System.EventHandler(this.btnChooseDir_Click);
             // 
-            // tbChooseRunExe
-            // 
-            this.tbChooseRunExe.Location = new System.Drawing.Point(25, 109);
-            this.tbChooseRunExe.Name = "tbChooseRunExe";
-            this.tbChooseRunExe.Size = new System.Drawing.Size(577, 21);
-            this.tbChooseRunExe.TabIndex = 4;
-            this.tbChooseRunExe.Text = "C:\\Users\\123\\Desktop\\Mozilla Firefox\\firefox.exe";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 12);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "需要启动的应用程序";
-            // 
-            // btnRunExe
-            // 
-            this.btnRunExe.Location = new System.Drawing.Point(618, 109);
-            this.btnRunExe.Name = "btnRunExe";
-            this.btnRunExe.Size = new System.Drawing.Size(91, 23);
-            this.btnRunExe.TabIndex = 6;
-            this.btnRunExe.Text = "选择应用程序";
-            this.btnRunExe.UseVisualStyleBackColor = true;
-            this.btnRunExe.Click += new System.EventHandler(this.btnRunExe_Click);
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 155);
+            this.label3.Location = new System.Drawing.Point(27, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 12);
             this.label3.TabIndex = 7;
@@ -122,7 +92,7 @@
             // 
             // tbSaveLoc
             // 
-            this.tbSaveLoc.Location = new System.Drawing.Point(25, 170);
+            this.tbSaveLoc.Location = new System.Drawing.Point(25, 98);
             this.tbSaveLoc.Name = "tbSaveLoc";
             this.tbSaveLoc.Size = new System.Drawing.Size(577, 21);
             this.tbSaveLoc.TabIndex = 8;
@@ -130,7 +100,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(618, 170);
+            this.btnSave.Location = new System.Drawing.Point(618, 98);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(91, 23);
             this.btnSave.TabIndex = 9;
@@ -151,7 +121,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 215);
+            this.label4.Location = new System.Drawing.Point(23, 143);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(29, 12);
             this.label4.TabIndex = 11;
@@ -159,7 +129,7 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(25, 233);
+            this.tbPassword.Location = new System.Drawing.Point(25, 161);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(577, 21);
             this.tbPassword.TabIndex = 12;
@@ -176,9 +146,6 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.tbSaveLoc);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.btnRunExe);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbChooseRunExe);
             this.Controls.Add(this.btnChooseDir);
             this.Controls.Add(this.tbPacketDir);
             this.Controls.Add(this.label1);
@@ -198,9 +165,6 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnChooseDir;
-        private System.Windows.Forms.TextBox tbChooseRunExe;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnRunExe;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbSaveLoc;

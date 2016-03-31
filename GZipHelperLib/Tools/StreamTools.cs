@@ -10,6 +10,7 @@ namespace GZipHelperLib.Tools
         public static byte[] StreamToBytes(Stream stream)
         {
             byte[] bytes = new byte[stream.Length];
+            stream.Seek(0, SeekOrigin.Begin);
             stream.Read(bytes, 0, bytes.Length);
             // 设置当前流的位置为流的开始 
             stream.Seek(0, SeekOrigin.Begin);
@@ -49,5 +50,14 @@ namespace GZipHelperLib.Tools
             Stream stream = new MemoryStream(bytes);
             return stream;
         }
+
+
+        public static string StreamToString(Stream stream)
+        {
+            stream.Position = 0;
+            StreamReader reader = new StreamReader(stream);
+            return reader.ReadToEnd();
+        }
+
     }
 }
